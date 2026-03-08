@@ -6,6 +6,15 @@
 
 class HandTracker {
 public:
+    static constexpr int THUMB_TIP  = 4;
+    static constexpr int INDEX_TIP  = 8;
+    static constexpr int INDEX_PIP  = 6;
+    static constexpr int MIDDLE_TIP = 12;
+    static constexpr int MIDDLE_PIP = 10;
+    static constexpr int RING_TIP   = 16;
+    static constexpr int RING_PIP   = 14;
+    static constexpr int PINKY_TIP  = 20;
+    static constexpr int PINKY_PIP  = 18;
     struct Landmark {
     float x, y, z;
     };
