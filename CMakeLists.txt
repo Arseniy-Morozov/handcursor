@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.16)
+project(HandCursor)
+set(CMAKE_CXX_STANDARD 17)
+find_package(OpenCV REQUIRED)
+add_executable(handcursor src/main.cpp  src/HandTracker.cpp src/GestureDetector.cpp)
+target_link_libraries(handcursor ${OpenCV_LIBS})
+target_include_directories(handcursor PRIVATE ${OpenCV_INCLUDE_DIRS})
