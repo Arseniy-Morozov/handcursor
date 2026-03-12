@@ -25,9 +25,41 @@ void CursorController::moveCursor(float normX, float normY)
     XWarpPointer(display_, None, root_, 0, 0, 0, 0, x, y);
     XFlush(display_);
 
-    // Fake click (press then release)
+    
+    
+}
+
+
+void CursorController::leftClick()
+{
     XTestFakeButtonEvent(display_, 1, True, 0);   // press
     XTestFakeButtonEvent(display_, 1, False, 0);  // release
     XFlush(display_);
 }
-
+void CursorController::rightClick()
+{
+    XTestFakeButtonEvent(display_, 3, True, 0);   // press
+    XTestFakeButtonEvent(display_, 3, False, 0);  // release
+    XFlush(display_);
+}
+void CursorController::scroll(bool up)
+{
+    int btn = up ? 4 : 5;
+    XTestFakeButtonEvent(display_, btn, True, 0);   // press
+    XTestFakeButtonEvent(display_, btn, False, 0);  // release
+    XFlush(display_);
+}
+void CursorController::beginDrag()
+{
+    if (!dragging_) {
+    XTestFakeButtonEvent(display_, 1, True, 0);
+    dragging_ = true;
+}
+}
+void CursorController::endDrag()
+{
+    if (dragging_) {
+    XTestFakeButtonEvent(display_, 1, False, 0);
+    dragging_ = false;
+}
+}
