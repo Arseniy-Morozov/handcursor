@@ -18,6 +18,7 @@ bool CursorController::init()
 
 void CursorController::moveCursor(float normX, float normY)
 {
+    std::cout << "Moving cursor to: " << normX << ", " << normY << "\n";
     int x = static_cast<int>(normX * screenW_);
     int y = static_cast<int>(normY * screenH_);
 

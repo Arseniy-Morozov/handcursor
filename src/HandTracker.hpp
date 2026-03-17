@@ -26,4 +26,5 @@ private:
 
     bool detected_ = false;
     std::vector<Landmark> landmarks_;
+    FILE* pipe_;
 };
